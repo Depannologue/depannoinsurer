@@ -1,0 +1,21 @@
+.professions {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.professions:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.home{
+  background-image: url('../../img/background2.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.blockProfessions{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid gray;
+      margin: 0;
+      background-color: white;
+      border-radius: 10px;
+}

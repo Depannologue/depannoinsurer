@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+
+  <ion-grid style="opacity: 0.8; ">
+    <ion-row>
+      <ion-col width-20></ion-col>
+
+      <ion-col width-25>
+          <div class="blockProfessions">
+            <div padding>
+              <ion-segment [(ngModel)]="pet">
+                <ion-segment-button value="depannage">
+                  Dépannage
+                </ion-segment-button>
+                <ion-segment-button value="renovation">
+                  Rénovation
+                </ion-segment-button>
+              </ion-segment>
+            </div>
+        <div [ngSwitch]="pet">
+        <ion-list inset *ngSwitchCase="'depannage'">
+          <button  *ngFor="let profession of professions" (click)="getInterventionTypes(profession)">
+            <ion-avatar item-left>
+              <img src="img/{{profession.slug}}.png">
+            </ion-avatar>
+              {{profession.name}}
+          </button>
+        </ion-list>
+
+
+        <ion-list  inset *ngSwitchCase="'renovation'">
+
+          <ion-item >
+            <ion-avatar item-left>
+
+            </ion-avatar>
+
+          </ion-item>
+
+
+        </ion-list>
+      </div>
+    </div>
+
+      </ion-col>
+      <ion-col width-15>
+        <div class="blockProfessions">
+          <div padding>
+            <ion-segment >
+              <ion-segment-button >
+                Type d'intervention
+              </ion-segment-button>
+            </ion-segment>
+          </div>
+        <ion-list  inset *ngFor="let interventionType of interventionTypes" >
+
+          <ion-item >
+
+            <ion-avatar item-left>
+
+            </ion-avatar>
+                {{interventionType.short_description}}
+          </ion-item>
+
+
+        </ion-list>
+      </div>
+      </ion-col>
+      <ion-col width-20></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-20>
+      </ion-col>
+        <div class="blockProfessions" style="opacity:0.8">
+      <ion-col width-60>
+        <ion-row>
+          <ion-col width-70></ion-col>
+          <ion-col width-30>
+            <ion-segment>
+              <ion-segment-button value="new" >
+                immédiat
+              </ion-segment-button>
+              <ion-segment-button value="hot" (click)="showModal()">
+                programmé
+              </ion-segment-button>
+            </ion-segment>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-20>
+
+              <ion-item>
+                <ion-label stacked>Référence client</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+          </ion-col>
+        </ion-row>
+            <ion-row>
+              <ion-col width-30>
+
+                  <ion-item>
+                    <ion-label stacked>Nom</ion-label>
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+
+              </ion-col>
+              <ion-col width-30>
+
+                  <ion-item>
+                    <ion-label stacked>Prénom</ion-label>
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-40>
+
+                  <ion-item>
+                    <ion-label stacked>Adresse</ion-label>
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+
+              </ion-col>
+              <ion-col width-20>
+
+                  <ion-item>
+                    <ion-label stacked>Code postal</ion-label>
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+
+              </ion-col>
+            </ion-row>
+          <ion-row>
+            <ion-col width-30>
+
+                <ion-item>
+                  <ion-label stacked>Télephone</ion-label>
+                  <ion-input type="tel"></ion-input>
+                </ion-item>
+
+            </ion-col>
+            <ion-col width-30>
+
+                <ion-item>
+                  <ion-label stacked>Mail</ion-label>
+                  <ion-input type="email"></ion-input>
+                </ion-item>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-60>
+              <button block>Résérver</button>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+    </div>
+      <ion-col width-20>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
