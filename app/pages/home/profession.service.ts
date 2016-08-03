@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import { Profession }      from './profession';
 
 @Injectable()
 export class ProfessionService {
@@ -9,6 +8,7 @@ export class ProfessionService {
   constructor (private http:Http) {}
 
   private professionURL = 'https://api.depannologue.dev/api/v1/professions';
+
   getProfessions(): Observable<Array<Object>> {
      return this.http.get(this.professionURL)
                     .map(this.extractData)
@@ -25,8 +25,8 @@ export class ProfessionService {
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
+      console.error(errMsg); // log to console instead
+      return Observable.throw(errMsg);
   }
 
 }

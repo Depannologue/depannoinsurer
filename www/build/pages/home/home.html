@@ -24,12 +24,15 @@
             </div>
         <div [ngSwitch]="pet">
         <ion-list inset *ngSwitchCase="'depannage'">
-          <button  *ngFor="let profession of professions" (click)="getInterventionTypes(profession)">
+          <button  ion-item clear block *ngFor="let profession of professions" (click)="getInterventionTypes(profession)">
+
             <ion-avatar item-left>
               <img src="img/{{profession.slug}}.png">
             </ion-avatar>
               {{profession.name}}
+
           </button>
+
         </ion-list>
 
 
@@ -57,16 +60,16 @@
               </ion-segment-button>
             </ion-segment>
           </div>
-        <ion-list  inset *ngFor="let interventionType of interventionTypes" >
+        <ion-list inset  >
 
-          <ion-item >
+          <button ion-item clear block *ngFor="let interventionType of interventionTypes" (click)="setInterventionType(interventionType)" >
 
             <ion-avatar item-left>
-
+              <img src="img/{{professionIMG}}.png">
             </ion-avatar>
-                {{interventionType.short_description}}
-          </ion-item>
+              {{interventionType.short_description}}
 
+          </button>
 
         </ion-list>
       </div>
@@ -82,29 +85,47 @@
     <ion-row>
       <ion-col width-20>
       </ion-col>
-        <div class="blockProfessions" style="opacity:0.8">
+        <div class="blockFrom" style="opacity:0.8">
       <ion-col width-60>
+        <form #formData='ngForm' (ngSubmit)="onSubmit(formData.value)">
         <ion-row>
           <ion-col width-70></ion-col>
           <ion-col width-30>
             <ion-segment>
-              <ion-segment-button value="new" >
+              <ion-segment-button value="new" (click)="setImmediate()">
                 immédiat
               </ion-segment-button>
-              <ion-segment-button value="hot" (click)="showModal()">
+              <ion-segment-button value="hot" (click)="setProgrammed()">
                 programmé
               </ion-segment-button>
             </ion-segment>
           </ion-col>
         </ion-row>
+
         <ion-row>
+
           <ion-col width-20>
 
               <ion-item>
                 <ion-label stacked>Référence client</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" ngControl="clientRef"></ion-input>
               </ion-item>
 
+          </ion-col>
+
+        </ion-row>
+        <ion-row *ngIf="isProgrammed">
+          <ion-col width-30>
+            <ion-item>
+              <ion-label stacked>Date</ion-label>
+              <ion-input required type="date" ngControl="date"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col width-30>
+            <ion-item>
+              <ion-label stacked>Heure</ion-label>
+              <ion-input required type="time" ngControl="time"></ion-input>
+            </ion-item>
           </ion-col>
         </ion-row>
             <ion-row>
@@ -112,33 +133,41 @@
 
                   <ion-item>
                     <ion-label stacked>Nom</ion-label>
-                    <ion-input type="text"></ion-input>
+                    <ion-input required type="text" ngControl="lastname"></ion-input>
                   </ion-item>
 
               </ion-col>
               <ion-col width-30>
 
                   <ion-item>
-                    <ion-label stacked>Prénom</ion-label>
-                    <ion-input type="text"></ion-input>
+                    <ion-label stacked >Prénom</ion-label>
+                    <ion-input required type="text" ngControl="firstname"></ion-input>
                   </ion-item>
 
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col width-40>
+              <ion-col width-30>
 
                   <ion-item>
-                    <ion-label stacked>Adresse</ion-label>
-                    <ion-input type="text"></ion-input>
+                    <ion-label stacked >Adresse</ion-label>
+                    <ion-input required type="text" ngControl="address" ></ion-input>
                   </ion-item>
 
               </ion-col>
-              <ion-col width-20>
+              <ion-col width-15>
+
+                  <ion-item>
+                    <ion-label stacked>Ville</ion-label>
+                    <ion-input required type="text" ngControl="city" ></ion-input>
+                  </ion-item>
+
+              </ion-col>
+              <ion-col width-15>
 
                   <ion-item>
                     <ion-label stacked>Code postal</ion-label>
-                    <ion-input type="text"></ion-input>
+                    <ion-input required type="text" ngControl="zipcode" ></ion-input>
                   </ion-item>
 
               </ion-col>
@@ -148,7 +177,7 @@
 
                 <ion-item>
                   <ion-label stacked>Télephone</ion-label>
-                  <ion-input type="tel"></ion-input>
+                  <ion-input required type="tel" ngControl="phoneNumber"></ion-input>
                 </ion-item>
 
             </ion-col>
@@ -156,21 +185,23 @@
 
                 <ion-item>
                   <ion-label stacked>Mail</ion-label>
-                  <ion-input type="email"></ion-input>
+                  <ion-input required type="email"  ngControl="email"></ion-input>
                 </ion-item>
 
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col width-60>
-              <button block>Résérver</button>
+              <button block  >Résérver</button>
             </ion-col>
+
           </ion-row>
+            </form>
+
       </ion-col>
     </div>
+
       <ion-col width-20>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-</ion-content>

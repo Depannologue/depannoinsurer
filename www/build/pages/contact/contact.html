@@ -1,17 +1,57 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class ="contact" padding>
+  <ion-grid style="opacity: 0.8;">
+    <ion-row>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+      <ion-col width-25></ion-col>
+
+        <div class="blockslide">
+
+          <ion-slides pager>
+            <ion-slide>
+              <bar-chart-demo></bar-chart-demo>
+            </ion-slide>
+            <ion-slide>
+              <radar-chart-demo></radar-chart-demo>
+            </ion-slide>
+          </ion-slides>
+
+        </div>
+
+        <ion-col width-25></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid style="opacity: 0.8;">
+        <ion-row>
+          <ion-col width-25></ion-col>
+              <div class="blockslide">
+                <ion-slides pager>
+                  <ion-slide *ngFor="let profession of professions">
+                      <ion-list >
+                        <ion-item>
+                          <ion-avatar item-left>
+                            <img src="img/{{profession.slug}}.png">
+                          </ion-avatar>
+                            {{profession.name}}
+                          </ion-item>
+                        </ion-list>
+                          <ion-list >
+                          <ion-item inset>
+                            <ion-icon name="speedometer" item-left></ion-icon>
+                              Nombre total d'interventions :
+                          </ion-item>
+                          <ion-item inset>
+                            <ion-icon name="logo-euro" item-left></ion-icon>
+                              Coût total :
+                          </ion-item>
+                          <ion-item inset>
+                            <ion-icon name="heart" item-left></ion-icon>
+                              Moyenne avis clients :
+                          </ion-item>
+                        </ion-list>
+                  </ion-slide>
+                </ion-slides>
+          </div>
+          <ion-col width-25></ion-col>
+          </ion-row>
+    </ion-grid>
 </ion-content>

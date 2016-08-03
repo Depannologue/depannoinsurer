@@ -1,0 +1,15 @@
+.blockslide{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto;
+
+}
+.contact{
+  background-image: url('../../img/background2.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
