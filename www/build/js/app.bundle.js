@@ -607,7 +607,7 @@ var HomePage = (function () {
             .subscribe(function (professions) { return _this.professions = professions; }, function (error) { return _this.errorMessage = error; });
     };
     HomePage.prototype.getInterventionTypes = function (profession) {
-        this.interventionTypes = profession.intervention_type;
+        this.interventionTypes = profession.intervention_types;
         this.professionIMG = profession.slug;
     };
     HomePage.prototype.buildIntervention = function () {

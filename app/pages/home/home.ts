@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
              error =>  this.errorMessage = <any>error);
   }
   public getInterventionTypes(profession){
-    this.interventionTypes = profession.intervention_type;
+    this.interventionTypes = profession.intervention_types;
     this.professionIMG = profession.slug;
   }
   public buildIntervention(){
