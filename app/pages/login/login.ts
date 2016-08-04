@@ -17,7 +17,6 @@ export class LoginPage {
     this.form = new BasicformPage();
     this.form.setFormData(formData);
     if(this.form.myData.login == "admin" && this.form.myData.login == "admin"){
-        this.nav.push(TabsPage);
     }else{
       alert("Login ou mot de passe erronés !")
     }
