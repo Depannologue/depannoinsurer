@@ -7,7 +7,7 @@ export class ProfessionService {
 
   constructor (private http:Http) {}
 
-  private professionURL = 'https://api.depannologue.dev/api/v1/professions';
+  private professionURL = 'https://api.depannodev.xyz/api/v1/professions';
 
   getProfessions(): Observable<Array<Object>> {
      return this.http.get(this.professionURL)

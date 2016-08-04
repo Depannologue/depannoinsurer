@@ -8,7 +8,7 @@ export class InterventionService {
 
   constructor (private http:Http) {}
 
-  private interventionURL = 'https://api.depannologue.dev/api/v1/interventions';
+  private interventionURL = 'https://api.depannodev.xyz/api/v1/interventions';
   buildURL(startDate="", endDate="", profession=""):Promise<Array<Object>>{
     var url = this.interventionURL + "?start_date=" + startDate + "&end_date=" + endDate + "&intervention_type[profession[slug]]=" + profession;
     console.log(url)

@@ -6,7 +6,7 @@ import {OnInit} from '@angular/core';
 import {BasicformPage} from './form'
 import {Intervention} from './intervention'
 import {InterventionType} from './interventionType'
-
+import {AboutPage} from '../about/about'
 @Component({
   templateUrl: 'build/pages/home/home.html',
 })
@@ -81,6 +81,7 @@ export class HomePage implements OnInit {
     this.form = new BasicformPage();
     this.form.setFormData(formData);
     this.postIntervention();
+    this.nav.push(AboutPage)
   }
 
   ngOnInit() {

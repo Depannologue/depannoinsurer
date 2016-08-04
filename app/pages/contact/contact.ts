@@ -16,20 +16,24 @@ import {DashBoard} from '../../components/dashBoard'
 
 })
 export class ContactPage implements OnInit, AfterContentInit {
+
   errorMessage : any;
-  dateBegin: string;
-  dateEnd:string;
-  data : Array<Object> ;
+  dateBegin ="";
+  dateEnd = "";
+  obj: [{name: string, value: string}];
+  data : Array<Object>;
+  totalInterv;
+  totalIntervPrice : Array<number>
   serrurerie;
   plombrerie;
   vitrerie;
   chaffage;
   electricite;
   professions=[{name: "Serrurerie", slug:"serrurerie"},
-              {name: "Serrurerie", slug:"plomberie"},
-              {name: "Serrurerie", slug:"vitrerie"},
-              {name: "Serrurerie", slug:"chauffage"},
-              {name: "Serrurerie", slug:"electricite"}];
+              {name: "Plomberie", slug:"plomberie"},
+              {name: "Vitrerie", slug:"vitrerie"},
+              {name: "Chauffage", slug:"chauffage"},
+              {name: "Eléctricité", slug:"electricite"}];
   form;
   chart;
   constructor(private navCtrl: NavController, private interventionService: InterventionService, private radarChart: RadarChart) {
@@ -37,31 +41,43 @@ export class ContactPage implements OnInit, AfterContentInit {
    getInterventions(startDate, endDate, profession) {
     this.interventionService.buildURL(startDate, endDate, profession)
                             .then(
-                             interventions =>   this.data.push(interventions),
+                             interventions =>   this.totalPrice(interventions),
                              error =>  this.errorMessage = <any>error);
   }
   ngOnInit() {
-
-
+    this.totalInterv = new Array(); 
+    this.getInterventions(this.dateBegin, this.dateEnd, 'serrurerie');
+    this.getInterventions(this.dateBegin, this.dateEnd, 'plomberie');
+    this.getInterventions(this.dateBegin, this.dateEnd, 'vitrerie');
+    this.getInterventions(this.dateBegin, this.dateEnd, 'chauffage');
+    this.getInterventions(this.dateBegin, this.dateEnd, 'electricite');
   }
   ngAfterContentInit() {
 
  }
   totalPrice(data){
-
-  console.log(this.data);
     var totalPrice = 0;
+    console.log(data[0])
     data.forEach(function(element){
       totalPrice = totalPrice + parseInt(element.intervention_type.price)
     })
-    return totalPrice;
+    var name="";
+    if (data.length !== 0){
+    if (data[0].intervention_type.profession_id == 1){
+      name = "serrurerie";
+    }else if(data[0].intervention_type.profession_id == 2){
+      name = "plomberie";
+    }else if(data[0].intervention_type.profession_id == 3){
+      name = "vitrerie";
+    }else if(data[0].intervention_type.profession_id == 4){
+      name = "chauffage";
+    }else{
+      name = "electricite";
+    }
+    this.totalInterv.push({name: name, totalIntervention: data.length, price: totalPrice });
+    console.log(this.totalInterv)
   }
-  totalInterventions(data){
-    var totalInterventions = 0;
-    data.forEach(function(element){
-      totalInterventions = data.length;
-    })
-    return totalInterventions;
   }
+
 
 }

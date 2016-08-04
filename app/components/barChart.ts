@@ -22,20 +22,20 @@ import {InterventionService} from '../pages/home/intervention.service'
                 <ion-col width-30>
                    <ion-item>
                      <ion-label stacked>Date fin</ion-label>
-                     <ion-input [(ngModel)]="dateBegin" type="date"  ></ion-input>
+                     <ion-input (change)="onChangeBeginDate()"[(ngModel)]="dateBegin" type="date"  ></ion-input>
                    </ion-item>
                 </ion-col>
                 <ion-col width-30>
                   <ion-item>
                      <ion-label stacked>Date fin</ion-label>
-                     <ion-input   (change)="onChange()" [(ngModel)]="dateEnd" type="date"  ></ion-input>
+                     <ion-input   (change)="onChangeEndDate()" [(ngModel)]="dateEnd" type="date"  ></ion-input>
                    </ion-item>
                 </ion-col>
                 <ion-col width-15></ion-col>
               </ion-row>
               <ion-row>
                 <ion-col width-30></ion-col>
-                <ion-col width-30><button (click)="changeData()">Valider</button></ion-col>
+                <ion-col width-30><button *ngIf="dateBeginShowButton && dateEndShowButton" (click)="changeData()">Valider</button></ion-col>
                 <ion-col width-30></ion-col>
               </ion-row>
 
@@ -50,7 +50,8 @@ export class BarChart{
   errorMessage;
   differ:any;
   data: Array<Object>;
-
+  dateBeginShowButton = false;
+  dateEndShowButton = false;
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -60,7 +61,7 @@ export class BarChart{
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: [65, 59, 80, 81, 56], label:'Series A'},
+    {data: [0, 0, 0, 0, 0], label:'Coût interventions par profession'},
   ];
   constructor( private interventionService: InterventionService) {
   }
@@ -75,9 +76,12 @@ export class BarChart{
 
   changeData(){
     console.log(this.data)
-    let _barChartData:Array<any> = [{data: [this.data[1],this.data[2],this.data[3],this.data[4],this.data[5]]}] ;
+    let _barChartData:Array<any> = [{data: [this.data[1],this.data[2],this.data[3],this.data[4],this.data[5]], label:'Coût interventions par profession'}] ;
     this.barChartData = _barChartData;
-
+    this.dateBegin = "";
+    this.dateEnd = "";
+    this.dateEndShowButton = false;
+    this.dateBeginShowButton = false;
   }
   totalPrice(interventions){
     var totalPrice = 0;
@@ -93,13 +97,17 @@ export class BarChart{
                             interventions =>  this.totalPrice(interventions),
                             error =>  console.log(error));
  }
- onChange(){
+ onChangeEndDate(){
    this.data = new Array(Object);
    this.getInterventions(this.dateBegin, this.dateEnd, 'serrurerie');
    this.getInterventions(this.dateBegin, this.dateEnd, 'plomberie');
    this.getInterventions(this.dateBegin, this.dateEnd, 'vitrerie');
    this.getInterventions(this.dateBegin, this.dateEnd, 'chauffage');
    this.getInterventions(this.dateBegin, this.dateEnd, 'electricite');
+   this.dateEndShowButton = true;
+ }
+ onChangeBeginDate(){
+   this.dateBeginShowButton = true;
  }
 
 }
