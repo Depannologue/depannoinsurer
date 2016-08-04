@@ -699,11 +699,11 @@ var http_2 = require('@angular/http');
 var InterventionService = (function () {
     function InterventionService(http) {
         this.http = http;
-        this.interventionURL = 'https://api.depannologue.dev/api/v1/interventions';
-        this.openedInterventionsURL = 'https://api.depannologue.dev/api/v1/interventions?is_not_in_state=closed';
-        this.closedInterventionsURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed';
-        //private closedInterventionsBetweenDateURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed&start_date=2016-07-01&end_date=2016-07-30';
-        this.closedInterventionsBetweenDateURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed';
+        this.interventionURL = 'https://api.depannodev.xyz/api/v1/interventions';
+        this.openedInterventionsURL = 'https://api.depannodev.xyz/api/v1/interventions?is_not_in_state=closed';
+        this.closedInterventionsURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed';
+        //private closedInterventionsBetweenDateURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed&start_date=2016-07-01&end_date=2016-07-30';
+        this.closedInterventionsBetweenDateURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed';
     }
     InterventionService.prototype.buildURL = function (startDate, endDate, profession) {
         if (startDate === void 0) { startDate = ""; }
@@ -808,7 +808,7 @@ var Observable_1 = require('rxjs/Observable');
 var ProfessionService = (function () {
     function ProfessionService(http) {
         this.http = http;
-        this.professionURL = 'https://api.depannologue.dev/api/v1/professions';
+        this.professionURL = 'https://api.depannodev.xyz/api/v1/professions';
     }
     ProfessionService.prototype.getProfessions = function () {
         return this.http.get(this.professionURL)

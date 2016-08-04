@@ -36,21 +36,21 @@ export class InterventionService {
   }
 
 
-  private openedInterventionsURL = 'https://api.depannologue.dev/api/v1/interventions?is_not_in_state=closed';
+  private openedInterventionsURL = 'https://api.depannodev.xyz/api/v1/interventions?is_not_in_state=closed';
   getOpenedInterventions(): Observable<Array<Object>> {
      return this.http.get(this.openedInterventionsURL)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  private closedInterventionsURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed';
+  private closedInterventionsURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed';
   getClosedInterventions(): Observable<Array<Object>> {
      return this.http.get(this.closedInterventionsURL)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
-  //private closedInterventionsBetweenDateURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed&start_date=2016-07-01&end_date=2016-07-30';
-  private closedInterventionsBetweenDateURL = 'https://api.depannologue.dev/api/v1/interventions?is_in_state=closed';
+  //private closedInterventionsBetweenDateURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed&start_date=2016-07-01&end_date=2016-07-30';
+  private closedInterventionsBetweenDateURL = 'https://api.depannodev.xyz/api/v1/interventions?is_in_state=closed';
   getClosedInterventionsBetweenDate(date1,date2): Observable<Array<Object>> {
 
     this.closedInterventionsBetweenDateURL = this.closedInterventionsBetweenDateURL+'&start_date='+date1+'&end_date='+date2;
