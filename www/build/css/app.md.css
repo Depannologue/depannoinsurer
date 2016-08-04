@@ -9416,7 +9416,7 @@ body {
   background-color: #fff; }
 
 .about {
-  background-image: url("../../img/background2.jpg");
+  background-image: url("../../img/background-2.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -9430,7 +9430,7 @@ body {
   overflow: auto; }
 
 .contact {
-  background-image: url("../../img/background2.jpg");
+  background-image: url("../../img/background-2.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -9443,7 +9443,7 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 .home {
-  background-image: url("../../img/background2.jpg");
+  background-image: url("../../img/background-2.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
 

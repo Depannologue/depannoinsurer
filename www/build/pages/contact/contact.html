@@ -20,32 +20,28 @@
         <ion-col width-25></ion-col>
       </ion-row>
     </ion-grid>
+
     <ion-grid style="opacity: 0.8;">
         <ion-row>
           <ion-col width-25></ion-col>
               <div class="blockslide">
                 <ion-slides pager>
-                  <ion-slide *ngFor="let profession of professions">
+                  <ion-slide *ngFor="let totalInterva of totalInterv">
                       <ion-list >
-                        <ion-item>
-                          <ion-avatar item-left>
-                            <img src="img/{{profession.slug}}.png">
-                          </ion-avatar>
-                            {{profession.name}}
-                          </ion-item>
-                        </ion-list>
-                          <ion-list >
+
+                              <img src="img/{{totalInterva.name}}.png">
+
                           <ion-item inset>
                             <ion-icon name="speedometer" item-left></ion-icon>
-                              Nombre total d'interventions :
+                              Nombre total d'interventions : {{totalInterva.totalIntervention}}
                           </ion-item>
                           <ion-item inset>
                             <ion-icon name="logo-euro" item-left></ion-icon>
-                              Coût total :
+                              Coût total : {{totalInterva.price}} euros
                           </ion-item>
                           <ion-item inset>
                             <ion-icon name="heart" item-left></ion-icon>
-                              Moyenne avis clients :
+                              Moyenne avis clients : 4.5/5
                           </ion-item>
                         </ion-list>
                   </ion-slide>
