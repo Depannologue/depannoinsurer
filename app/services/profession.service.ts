@@ -7,7 +7,7 @@ import {AuthHttp} from 'angular2-jwt';
 
 @Injectable()
 export class ProfessionService {
-  private professionURL = 'https://api.depannologue.dev/api/v1/professions';
+  private professionURL = 'https://api.depannologue.fr/api/v1/professions';
   local: Storage = new Storage(LocalStorage);
   id_token : string;
   headers : Headers = new Headers();

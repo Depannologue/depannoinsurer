@@ -8752,3 +8752,8 @@ body {
   background-color: white;
   border-radius: 10px;
   overflow: auto; }
+
+.profil {
+  background-image: url("../../img/background-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }

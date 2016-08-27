@@ -4,13 +4,20 @@
   <ion-title>Profile</ion-title>
 </ion-navbar>
 
-<ion-content padding *ngIf="!auth.authenticated()">
-
-  <button block (click)="login()">Login</button>
-
+<ion-content class="profil"  padding *ngIf="!auth.authenticated()">
+  <ion-row>
+  <ion-col width-25></ion-col>
+  <ion-col width-50>
+      <ion-card style="opacity: 0.7">
+        <img style="opacity:0.7"src="img/axa.jpg"/>
+        <button block (click)="login()">Login</button>
+      </ion-card>
+    </ion-col>
+    <ion-col width-25></ion-col>
+  </ion-row>
 </ion-content>
 
-<ion-content padding *ngIf="auth.authenticated()">
+<ion-content class="profil" padding *ngIf="auth.authenticated()">
 
   <ion-card>
 

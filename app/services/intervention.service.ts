@@ -10,7 +10,7 @@ export class InterventionService {
 
   constructor (private http:Http) {}
 
-  private interventionURL = 'https://api.depannologue.dev/api/v1/interventions';
+  private interventionURL = 'https://api.depannologue.fr/api/v1/interventions';
 
 
   getInterventions(filter: Filter): Observable<Array<Intervention>> {
