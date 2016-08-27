@@ -1,4 +1,4 @@
-.blockslide{
+.block{
   width: 100%;
   padding: 10px;
   border: 1px solid gray;
@@ -6,10 +6,19 @@
   background-color: white;
   border-radius: 10px;
   overflow: auto;
-
+  opacity: 0.9;
 }
 .contact{
   background-image: url('../../img/background-2.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+}
+.title{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.dateInput{
+  background: rgba(148,159,177,0.2);
+  border-radius: 10px;
 }

@@ -1,0 +1,21 @@
+<ion-content padding class="home">
+  <ion-grid style="opacity: 0.9; ">
+    <ion-row responsive-sm responsive-md responsive-lg wrap>
+      <ion-col width-50>
+          <div class="blockProfessions">
+            <professions-list (selectedProfession)='selectProfession($event)' ></professions-list>
+          </div>
+      </ion-col>
+      <ion-col width-50>
+        <div class="blockProfessions">
+          <intervention-type-list  (selectedInterventionType)="selectInterventionType($event)" *ngIf="renderInterventionTypes" [profession]="selectedProfession"></intervention-type-list>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+        <ion-col width-100>
+          <intervention-form *ngIf="renderFrom" (error)="showError($event)" [interventionType]="selectedInterventionType"></intervention-form>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

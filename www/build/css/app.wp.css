@@ -9169,25 +9169,6 @@ body {
   font-size: 1.4rem;
   background-color: #fff; }
 
-.about {
-  background-image: url("../../img/background-2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; }
-
-.blockslide {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid gray;
-  margin: 0;
-  background-color: white;
-  border-radius: 10px;
-  overflow: auto; }
-
-.contact {
-  background-image: url("../../img/background-2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; }
-
 .professions {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -9210,6 +9191,44 @@ body {
   border-radius: 10px;
   height: 400px;
   overflow: auto; }
+
+.blockFrom {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto; }
+
+.block {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto;
+  opacity: 0.9; }
+
+.contact {
+  background-image: url("../../img/background-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.title {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+.dateInput {
+  background: rgba(148, 159, 177, 0.2);
+  border-radius: 10px; }
+
+.about {
+  background-image: url("../../img/background-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .blockFrom {
   width: 100%;

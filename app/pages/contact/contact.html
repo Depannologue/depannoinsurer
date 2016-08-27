@@ -1,53 +1,88 @@
-<ion-content class ="contact" padding>
-  <ion-grid style="opacity: 0.8;">
+<ion-content class="contact">
+  <ion-grid>
     <ion-row>
-
+      <ion-col width-50>
+        <intervention-number [img]="imgPending" [message]="inProgressInterventionMessage" [filter]="inProgressInterventionFilter"></intervention-number>
+      </ion-col>
+      <ion-col width-50>
+        <intervention-number [img]="imgClosed" [message]="closedInterventionMessage" [filter]="closedInterventionFilter"></intervention-number>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-30></ion-col>
+      <ion-col  width-40>
+        <ion-item   class="block ">
+          <ion-avatar  item-left>
+            <img src="img/pourcentage.png">
+          </ion-avatar>
+          <h2>Part des professions sur le total d'interventions</h2>
+        </ion-item>
+      </ion-col>
+      <ion-col width-30></ion-col>
+    </ion-row>
+    <ion-row class="block">
+      <ion-col class="title" width-33>
+        <doughnut-chart  [interventionsNumber]="serrurerieInterventionsNumber" [totalInterventions]="totalInterventions" [profession]="serrurerie"></doughnut-chart>
+        <h4>{{serrurerie}}: {{(serrurerieInterventionsNumber / totalInterventions) | percent:'2.1-1'}}</h4>
+      </ion-col>
+      <ion-col class="title"  width-33>
+        <doughnut-chart  [interventionsNumber]="plomberieInterventionsNumber" [totalInterventions]="totalInterventions" [profession]="plomberie"></doughnut-chart>
+      <h4>  {{plomberie}}: {{(plomberieInterventionsNumber / totalInterventions) | percent:'1.1-1'}} </h4>
+      </ion-col>
+    <ion-col class="title"  width-33>
+      <doughnut-chart  [interventionsNumber]="vitrerieInterventionsNumber" [totalInterventions]="totalInterventions" [profession]="vitrerie"></doughnut-chart>
+    <h4>  {{vitrerie}}: {{(vitrerieInterventionsNumber / totalInterventions) | percent:'1.1-1'}} </h4>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-slides pager>
+      <ion-slide >
+        <profession-details [filter]="serrurerieFilter" [profession]="serrurerie"></profession-details>
+      </ion-slide>
+      <ion-slide >
+        <profession-details [filter]="plomberieFilter" [profession]="plomberie"></profession-details>
+      </ion-slide>
+      <ion-slide >
+        <profession-details [filter]="vitrerieFilter" [profession]="vitrerie"></profession-details>
+      </ion-slide>
+  </ion-slides>
+  </ion-grid>
+  <ion-grid class="block">
+    <ion-row>
+      <ion-col width-50>
+        <bar-chart [barData]="pieData" ></bar-chart>
+      </ion-col>
+      <ion-col width-50>
+        <pie-chart [pieData]="pieData" ></pie-chart>
+      </ion-col>
+    </ion-row>
+    <ion-row responsive-sm responsive-md responsive-lg wrap>
       <ion-col width-25></ion-col>
-
-        <div class="blockslide">
-
-          <ion-slides pager>
-            <ion-slide>
-              <bar-chart-demo></bar-chart-demo>
-            </ion-slide>
-            <ion-slide>
-              <radar-chart-demo></radar-chart-demo>
-            </ion-slide>
-          </ion-slides>
-
-        </div>
-
-        <ion-col width-25></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid style="opacity: 0.8;">
-        <ion-row>
-          <ion-col width-25></ion-col>
-              <div class="blockslide">
-                <ion-slides pager>
-                  <ion-slide *ngFor="let totalInterva of totalInterv">
-                      <ion-list >
-
-                              <img src="img/{{totalInterva.name}}.png">
-
-                          <ion-item inset>
-                            <ion-icon name="speedometer" item-left></ion-icon>
-                              Nombre total d'interventions : {{totalInterva.totalIntervention}}
-                          </ion-item>
-                          <ion-item inset>
-                            <ion-icon name="logo-euro" item-left></ion-icon>
-                              Coût total : {{totalInterva.price}} euros
-                          </ion-item>
-                          <ion-item inset>
-                            <ion-icon name="heart" item-left></ion-icon>
-                              Moyenne avis clients : 4.5/5
-                          </ion-item>
-                        </ion-list>
-                  </ion-slide>
-                </ion-slides>
-          </div>
-          <ion-col width-25></ion-col>
-          </ion-row>
-    </ion-grid>
+      <ion-col width-25>
+        <ion-item  class="dateInput">
+          <ion-label stacked primary><b>Date de debut</b></ion-label>
+          <ion-input  [(ngModel)]="dateBegin" type="date" placeholder="JJ/MM/AAAA"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col width-25>
+       <ion-item class="dateInput">
+          <ion-label stacked primary><b>Date de fin</b></ion-label>
+          <ion-input [(ngModel)]="dateEnd" type="date" placeholder="JJ/MM/AAAA"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col width-25></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-55></ion-col>
+      <ion-col width-10>
+        <button (click)="getPieData()">
+          Valider
+        </button>
+      </ion-col>
+      <ion-col width-55></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
