@@ -93,7 +93,7 @@ import {InterventionService} from '../../services/intervention.service'
       </ion-row>
       <ion-row responsive-sm responsive-md responsive-lg wrap>
         <ion-col width-60>
-          <button block  >Résérver</button>
+          <button block disabled >Résérver</button>
         </ion-col>
       </ion-row>
   </ion-grid>
